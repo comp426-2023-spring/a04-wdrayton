@@ -11,11 +11,13 @@ const app = express();
 
 const port = args.port || process.env.port || 5000;
 
-if (args.data != null) {
-    const shot = args.data;
-} else {
-    const shot = null;
-}
+// if (args.data != null) {
+//     const shot = args.data;
+// } else {
+//     const shot = null;
+// }
+app.use(express.json());
+app.use(express.urlencoded({extended: true}));
 
 app.get('/app/', (req, res) => {
     res.statusCode = 200;
@@ -59,6 +61,6 @@ app.get('/app/rpsls/play/' + ('rock/'|'paper/'|'scissors/'|'lizard/'|'spock/'), 
     res.end();
 });
 
-res.send("404 NOT FOUND");
+send("404 NOT FOUND");
 
 
