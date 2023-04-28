@@ -1,0 +1,29 @@
+{
+  "name": "a04-wdrayton",
+  "version": "1.0.0",
+  "description": "This assignment will help you stand up a web API using Express and the module that you produced for a03.",
+  "main": "server.js",
+  "type": "module",
+  "scripts": {
+    "test": "node server.js --port=5555",
+    "start": "node server.js"
+  },  
+  "repository": {
+    "type": "git",
+    "url": "github.com/comp426-2023-spring/a04-wdrayton"
+  },
+  "keywords": [
+    "web",
+    "server",
+    "port",
+    "node",
+    "fs",
+    "args",
+    "http"
+  ],
+  "author": "wdrayton",
+  "license": "SEE LICENSE IN LICENSE",
+  "dependencies": {
+    "minimist": "^1.2.8"
+  }
+}
