@@ -61,6 +61,8 @@ app.get('/app/rpsls/play/' + ('rock/'|'paper/'|'scissors/'|'lizard/'|'spock/'), 
     res.end();
 });
 
+app.listen(port);
+
 //send("404 NOT FOUND");
 
 
