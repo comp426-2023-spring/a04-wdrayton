@@ -11,11 +11,8 @@ const app = express();
 
 const port = args.port || process.env.port || 5000;
 
-// if (args.data != null) {
-//     const shot = args.data;
-// } else {
-//     const shot = null;
-// }
+const shot = args.data;
+
 app.use(express.json());
 app.use(express.urlencoded({extended: true}));
 
@@ -25,44 +22,45 @@ app.get('/app/', (req, res) => {
     res.end();
 });
 
+//RPS games
 app.get('/app/rps/', (req, res) => {
-    res.statusCode = 200;
     res.send(playRPS(shot));
     res.end();
 });
 
 app.get('/app/rps/play/', (req, res) => {
-    res.statusCode = 200;
     res.send(playRPS(shot));
     res.end();
 });
 
 app.get('/app/rps/play/' + ('rock/'|'paper/'|'scissors/'), (req, res) => {
-    res.statusCode = 200;
     res.send(playRPS(shot));
     res.end();
 });
 
+//RPSLS games
 app.get('/app/rpsls/', (req, res) => {
-    res.statusCode = 200;
     res.send(playRPSLS(shot));
     res.end();
 })
 
 app.get('/app/rpsls/play/', (req, res) => {
-    res.statusCode = 200;
     res.send(playRPSLS(shot));
     res.end();
 });
 
 app.get('/app/rpsls/play/' + ('rock/'|'paper/'|'scissors/'|'lizard/'|'spock/'), (req, res) => {
-    res.statusCode = 200;
     res.send(playRPSLS(shot));
     res.end();
 });
 
-app.listen(port);
+//Error
+app.use(() => {
+    res.status(404).send("404 NOT FOUND")
+});
 
-//send("404 NOT FOUND");
+app.listen(port, () => {
+    console.log("Server running on port " + port);
+});
 
 
