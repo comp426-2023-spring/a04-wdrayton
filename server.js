@@ -55,7 +55,7 @@ app.get('/app/rpsls/play/' + ('rock/'|'paper/'|'scissors/'|'lizard/'|'spock/'), 
 });
 
 //Error
-app.use(() => {
+app.use((res, req) => {
     res.status(404).send("404 NOT FOUND")
 });
 
