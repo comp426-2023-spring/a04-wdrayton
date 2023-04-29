@@ -11,8 +11,6 @@ const app = express();
 
 const port = args.port || process.env.port || 5000;
 
-const shot = args.data;
-
 app.use(express.json());
 app.use(express.urlencoded({extended: true}));
 
@@ -24,32 +22,38 @@ app.get('/app/', (req, res) => {
 
 //RPS games
 app.get('/app/rps/', (req, res) => {
+    const shot = req.query;
     res.send(playRPS(shot));
     res.end();
 });
 
 app.get('/app/rps/play/', (req, res) => {
+    const shot = req.query.data;
     res.send(playRPS(shot));
     res.end();
 });
 
 app.get('/app/rps/play/' + ('rock/'|'paper/'|'scissors/'), (req, res) => {
+    const shot = req.query.data;
     res.send(playRPS(shot));
     res.end();
 });
 
 //RPSLS games
 app.get('/app/rpsls/', (req, res) => {
+    const shot = req.query.data;
     res.send(playRPSLS(shot));
     res.end();
 })
 
 app.get('/app/rpsls/play/', (req, res) => {
+    const shot = req.query.data;
     res.send(playRPSLS(shot));
     res.end();
 });
 
 app.get('/app/rpsls/play/' + ('rock/'|'paper/'|'scissors/'|'lizard/'|'spock/'), (req, res) => {
+    const shot = req.query.data;
     res.send(playRPSLS(shot));
     res.end();
 });
