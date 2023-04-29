@@ -14,6 +14,17 @@ const port = args.port || process.env.port || 5000;
 app.use(express.json());
 app.use(express.urlencoded({extended: true}));
 
+let shot = '';
+
+const server = http.createServer((req, res) => {
+    if (req.method === 'POST' && req.headers['content-type'] === 'application/x-www-form-urlencoded') {
+      req.on('data', (chunk) => {
+        body += chunk.toString();
+      });
+  
+    }
+});
+
 app.get('/app/', (req, res) => {
     res.statusCode = 200;
     res.send("200 OK");
@@ -27,14 +38,14 @@ app.get('/app/rps/', (req, res) => {
 });
 
 app.get('/app/rps/play/', (req, res) => {
-    const shot = req.query.urlencoded;
+    //const shot = req.query;
     console.log(shot);
     res.send(playRPS(shot));
     res.end();
 });
 
 app.get('/app/rps/play/' + ('rock/'|'paper/'|'scissors/'), (req, res) => {
-    const shot = req.query.data;
+    //const shot = req.query.data;
     res.send(playRPS(shot));
     res.end();
 });
@@ -46,13 +57,13 @@ app.get('/app/rpsls/', (req, res) => {
 })
 
 app.get('/app/rpsls/play/', (req, res) => {
-    const shot = req.query.data;
+    //const shot = req.query.data;
     res.send(playRPSLS(shot));
     res.end();
 });
 
 app.get('/app/rpsls/play/' + ('rock/'|'paper/'|'scissors/'|'lizard/'|'spock/'), (req, res) => {
-    const shot = req.query.data;
+    //const shot = req.query.data;
     res.send(playRPSLS(shot));
     res.end();
 });
