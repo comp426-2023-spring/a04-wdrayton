@@ -60,7 +60,8 @@ app.get('/app/rpsls/play/' + ('rock/'|'paper/'|'scissors/'|'lizard/'|'spock/'), 
 
 //Error
 app.use((req, res) => {
-    res.statusCode(404).send("404 NOT FOUND")
+    res.statusCode = 404;
+    res.send("404 NOT FOUND");
 });
 
 app.listen(port, () => {
