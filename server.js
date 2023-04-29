@@ -22,13 +22,13 @@ app.get('/app/', (req, res) => {
 
 //RPS games
 app.get('/app/rps/', (req, res) => {
-    const shot = req.query;
-    res.send(playRPS(shot));
+    res.send(playRPS(null));
     res.end();
 });
 
 app.get('/app/rps/play/', (req, res) => {
     const shot = req.query.data;
+    console.log(shot);
     res.send(playRPS(shot));
     res.end();
 });
@@ -41,8 +41,7 @@ app.get('/app/rps/play/' + ('rock/'|'paper/'|'scissors/'), (req, res) => {
 
 //RPSLS games
 app.get('/app/rpsls/', (req, res) => {
-    const shot = req.query.data;
-    res.send(playRPSLS(shot));
+    res.send(playRPSLS(null));
     res.end();
 })
 
