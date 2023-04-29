@@ -14,17 +14,6 @@ const port = args.port || process.env.port || 5000;
 app.use(express.json());
 app.use(express.urlencoded({extended: true}));
 
-let shot = '';
-
-const server = http.createServer((req, res) => {
-    if (req.method === 'POST' && req.headers['content-type'] === 'application/x-www-form-urlencoded') {
-      req.on('data', (chunk) => {
-        body += chunk.toString();
-      });
-  
-    }
-});
-
 app.get('/app/', (req, res) => {
     res.statusCode = 200;
     res.send("200 OK");
