@@ -27,15 +27,20 @@ app.get('/app/rps/', (req, res) => {
 });
 
 app.get('/app/rps/play/', (req, res) => {
-    //const shot = req.query;
-    console.log(shot);
-    res.send(playRPS(shot));
+    const shot = req.query.shot;
+    res.send(JSON.parse(playRPS(shot)));
     res.end();
 });
 
-app.get('/app/rps/play/' + ('rock/'|'paper/'|'scissors/'), (req, res) => {
-    //const shot = req.query.data;
-    res.send(playRPS(shot));
+app.post('/app/rps/play/', (req, res) => {
+    const shot = req.body.shot;
+    res.send(JSON.parse(playRPS(shot)));
+    res.end();
+});
+
+app.get('/app/rps/play/:shot', (req, res) => {
+    const shot = req.params.shot;
+    res.send(JSON.parse(playRPS(shot)));
     res.end();
 });
 
@@ -46,14 +51,20 @@ app.get('/app/rpsls/', (req, res) => {
 })
 
 app.get('/app/rpsls/play/', (req, res) => {
-    //const shot = req.query.data;
-    res.send(playRPSLS(shot));
+    const shot = req.query.shot;
+    res.send(JSON.parse(playRPSLS(shot)));
     res.end();
 });
 
-app.get('/app/rpsls/play/' + ('rock/'|'paper/'|'scissors/'|'lizard/'|'spock/'), (req, res) => {
-    //const shot = req.query.data;
-    res.send(playRPSLS(shot));
+app.post('/app/rpsls/play/', (req, res) => {
+    const shot = req.body.shot;
+    res.send(JSON.parse(playRPSLS(shot)));
+    res.end();
+});
+
+app.get('/app/rpsls/play/:shot', (req, res) => {
+    const shot = req.params.shot;
+    res.send(JSON.parse(playRPSLS(shot)));
     res.end();
 });
 
